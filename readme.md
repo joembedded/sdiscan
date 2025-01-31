@@ -7,14 +7,14 @@
 ### Übersicht
 SDIScan ist ein Tool um die Wireless Minilogger von GeoPrecision (433MHz oder 915MHz) über SDI-12 anzubinden.
 Dazu wird ein "Wireless 433/915 MHz to SDI12 Converter" benötigt (siehe dessen separates Datenblatt/Anleitung).
-Dieser kann über das Kommando 'aXL!' die umgebenden Logger abfragen. Bedingung ist, dass die Logger "Live-Werte"
-senden (das muss jeweils an den Loggern selbst aktiviert werden). Das 'aXL!'-Kommandoe benötigt ca. 15 Sekunden.
+Dieser kann über das Kommando `aXL!` die umgebenden Logger abfragen. Bedingung ist, dass die Logger "Live-Werte"
+senden (das muss jeweils an den Loggern selbst aktiviert werden). Das `aXL!`-Kommandoe benötigt ca. 15 Sekunden.
 Danach werden die empfangenen Geräte als Liste ausgegeben.
 
-Des weiteren wird davon ausgegangen, dass das 'BlxDashboard' verwendet wird. Terminal-Kommandos mit vorangestelltem 'z'
-werden vom 'BlxDashboard' über SDI-12 ausgegeben. Natürlich muss ein "Wireless 433/915 MHz to SDI12 Converter" an dem
-per Bluetooth verbundenen Gerät angeschlossen sein. Im Folgenden wird '?' als SDI-12 Broadcast Adresse verwendet (Broadcast kann aber nur verwendet werden, wenn nur ein einziger Teilnehmer am SDI-12 Bus angeschlossen ist).
-Da der Scan ca. 15 Sekunden dauert, kann das dem 'BlxDashboard' über die Sequenz '*MILISECONDS' (hier '*15000') mitgeteilt werden. Die Antwort des Konverters wird ungefiltert ausgegeben. Ein Beispiel:
+Des weiteren wird davon ausgegangen, dass das `BlxDashboard` verwendet wird. Terminal-Kommandos mit vorangestelltem `z`
+werden vom `BlxDashboard` über SDI-12 ausgegeben. Natürlich muss ein "Wireless 433/915 MHz to SDI12 Converter" an dem
+per Bluetooth verbundenen Gerät angeschlossen sein. Im Folgenden wird `?` als SDI-12 Broadcast Adresse verwendet (Broadcast kann aber nur verwendet werden, wenn nur ein einziger Teilnehmer am SDI-12 Bus angeschlossen ist).
+Da der Scan ca. 15 Sekunden dauert, kann das dem `BlxDashboard` über die Sequenz `*MILISECONDS` (hier '*15000') mitgeteilt werden. Die Antwort des Konverters wird ungefiltert ausgegeben. Ein Beispiel:
 
 ``` 
     > z*15000 ?XL!
@@ -27,7 +27,7 @@ Da der Scan ca. 15 Sekunden dauert, kann das dem 'BlxDashboard' über die Sequen
     Reply: 'SDI:'0''
 ```
 
-'z*15000 ?XL!' ist das Kommando, der Konverter antwortet mit SDI-12 Adresse '0' und es wurden 2 Wireless Minilogger gefunden mit den Seriennummern SNO 'A55030' und 'A53940':
+`z*15000 ?XL!` ist das Kommando, der Konverter antwortet mit SDI-12 Adresse `0` und es wurden 2 Wireless Minilogger gefunden mit den Seriennummern SNO `A55030` und `A53940`:
 
 ```
     ...
@@ -43,7 +43,7 @@ Zusätzlich sind in den "Live-Daten" auch noch die Signalstärke und ein 8-Bit-Z
 
 ### Der Scan
 
-Die Ausgaben des 'aXL!' können entweder direkt vom 'BlxDashboard' in SDIScan kopiert werden. Alternativ reicht es auch aus,
+Die Ausgaben des `aXL!` können entweder direkt vom `BlxDashboard` in SDIScan kopiert werden. Alternativ reicht es auch aus,
 die Seriennummern SNO (6 Zeichen) in manuellen Zeilen einzutragen. Da jeder Logger eine PIN (4 Zeichen) benötigt, muss diese in jedem
 Fall manuell eingetragen werden (die PIN vom Etikett der Wireless Logger). Die Anzahl der verwendeten "Live-Daten" kann ebenfalls justiert werden und optional können Signalstärke und Messungen-Zähler mit erfasst werden.
 
@@ -63,16 +63,16 @@ Das Ergebnis sieht so aus (mit Kommenaren)
     z-                                  // SDI-12 Bus AUS
 ```
 
-Das 'BlxDasboard' kann auch mehrzeilige Kommandos (genannt CRUN-Dateien) verarbeiten: 
-Diese wird mit 'Download CRUN Command File' erzeugt. Das 'BlxDahboard' Terminal-Kommando '.crun' öffnet dann einen Fileselektor
+Das `BlxDasboard` kann auch mehrzeilige Kommandos (genannt CRUN-Dateien) verarbeiten: 
+Diese wird mit `Download CRUN Command File` erzeugt. Das `BlxDahboard` Terminal-Kommando `.crun` öffnet dann einen Fileselektor
 und führt die Datei aus. 
 
 
 ## Installation
 
 SDIScan ist eine reine HTML/JS-Applikation und wurde unter Chrome/Edge entwickelt. 
-'index.html' kann auch lokal mit dem Browser und ohne Server geöffnet werden,
-das 'BlxDashboard' und eine Arbeitsversion 'SDIScan' befinden sich in den Repositories:
+`index.html` kann auch lokal mit dem Browser und ohne Server geöffnet werden,
+das `BlxDashboard` und eine Arbeitsversion `SDIScan` befinden sich in den Repositories:
 
 [BlxDashboard (in Repository LTX BLE Demo)](https://joembedded.github.io/ltx_ble_demo/ble_api/index.html)
 
