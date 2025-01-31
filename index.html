@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 
+Dies ist eine kleine HTML/JS Anwendung um
+Ausgaben des “Wireless 433 MHz to SDI12 Converter” 
+in SDI12 Kommandos umzuwandeln.
+Entwickelt fuer Chrome/Edge
+(C) JoEmbedded.de  
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Top team: pico.conditional.css and jodash.css  -->
+    <link rel="stylesheet" href="./css/pico.conditional.css">
+    <link rel="stylesheet" href="./css/jodash.css">
+    <script src="./js/sdiscan.js" defer type="module"></script>
+    <title>SDIScan</title>
+</head>
+
+<body>
+
+    <main class="pico container">
+        <h4>SDIScan <span id="svers">V?</span> - Tool for “Wireless 433 MHz to SDI12 Converter”</h4>
+        <article>
+            <label><b>Text Output (from SCAN Command):</b>
+                <textarea id="scanoutput" rows="5" placeholder="Paste BlxDashboard Output here"></textarea>
+            </label>
+            <button id="scanbuttonoutput" data-tooltip="Scan Output from above">Scan Text Output</button>
+            <button id="addmanual" data-tooltip="And/Or add manual lines">&#10010; Add
+                manual</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <button id="clearoutput" data-tooltip="Clear All">&#10006; Clear All</button>
+            <button hidden id="debugbutton" data-tooltip="Generate Sample Data (Debug)" class="secondary">Debug</button>
+
+        </article>
+        <article>
+            <b>Interpretation:</b>
+            <label>
+                SDI12-Addr: <input type="text" pattern="[\?0-9a-zA-Z]" id="sdi12addr" size="1" maxlength="1" value="?"
+                    style="width: 3rem;">
+            </label>
+            <div id="interpretation">
+            </div>
+            <button id="generatesdi" disabled>Generate SDI12</button>
+        </article>
+        <article>
+            <label><b>SDI12 Commands (as in CRUN Command File):</b>
+                <textarea id="commands" rows="8"></textarea>
+            </label>
+            <button id="gencrun" disabled>&#9207; Download CRUN Command File</button>
+        </article>
+    </main>
+</body>
+
+<template id="iptemplate">
+    <!-- Main div wird benannt 'ipindex'+ID -->
+    <div class="grid" style="border-top: 1px solid lightgray;">
+        <label>
+            <span class="ipindex">x</span>:
+            SNO
+            <input class="ipadr" pattern="[0-9a-fA-F]{6}" type="text" size="6" maxlength="6" style="width: 9rem;">
+        </label>
+        <label>PIN
+            <input class="ippin" pattern="[0-9a-fA-F]{4}" type="text" size="4" maxlength="4" style="width: 6rem;">
+        </label>
+        <label>No. of Channels
+            <input class="ipnofchan" pattern="[0-9]+" type="text" size="2" maxlength="2" style="width: 4rem;">
+        </label>
+        <div>
+            <label><input class="ipwsig" type="checkbox"> With Signal</label>
+            <label><input class="ipwcnt" type="checkbox"> With MeasureCnt</label>
+        </div>
+    </div>
+</template>
+
+</html>
