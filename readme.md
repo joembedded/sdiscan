@@ -15,8 +15,8 @@ Die Programmierung des "Wireless 433/915 MHz to SDI12 Converter" wird mit SDISca
 
 Des weiteren wird davon ausgegangen, dass das `BlxDashboard` verwendet wird. Terminal-Kommandos mit vorangestelltem `z`
 werden vom `BlxDashboard` über SDI-12 ausgegeben. Natürlich muss ein "Wireless 433/915 MHz to SDI12 Converter" an dem
-per Bluetooth verbundenen Gerät angeschlossen sein. Im Folgenden wird `?` als SDI-12 Broadcast Adresse verwendet (Broadcast kann aber nur verwendet werden, wenn nur ein einziger Teilnehmer am SDI-12 Bus angeschlossen ist).
-Da der Scan ca. 15 Sekunden dauert, kann das dem `BlxDashboard` über die Sequenz `*MILISECONDS` (hier '*15000') mitgeteilt werden. Die Antwort des Konverters wird ungefiltert ausgegeben. Ein Beispiel:
+per Bluetooth verbundenen Gerät angeschlossen sein. Im Folgenden wird `?` als SDI-12 Broadcast Adresse verwendet (Broadcast kann aber nur verwendet werden, wenn nur ein einziger Teilnehmer am SDI-12 Bus angeschlossen ist, ansonsten muss dessen echte SDI-12 Adresse `0`-`9`, `a`-`z` oder `A`-`Z` verwendet werden).
+Da der Scan ca. 15 Sekunden dauert, kann das dem `BlxDashboard` über die Sequenz `*MILISECONDS` (hier `*15000`) mitgeteilt werden. Die Antwort des Konverters wird ungefiltert ausgegeben. Ein Beispiel:
 
 ``` 
     > z*15000 ?XL!
@@ -51,16 +51,16 @@ Fall manuell eingetragen werden (die PIN vom Etikett der Wireless Logger). Die A
 
 Die beiden PINs der obigen Logger beispielsweise sind F75D (für A55030) und 4372 (für A53940).
 
-Das Ergebnis sieht so aus (mit Kommenaren)
+Das Ergebnis sieht so aus (mit Kommentaren):S
 
 ```
     // SDISCAN - CRUN Command File      // Zeilen mit Anfangs '//' sind Kommntare
     .expect connected                   // erwartet eine Bluetooth-Verbindung
-    z+                                  // Schaltet SDI-12 Bus EIN
+    z+                                  // schaltet SDI-12 Bus EIN
     .sleep 1000                         // 1 sec
     z0XP0=5,0,A55030,F75D!              // Mit 'XP' Kommandos wird der Konverter 
-    z0XP1=3,1!                          // programmiert. Diese erzeugt SDIScan
-    z0XP2=3,2!
+    z0XP1=3,1!                          // programmiert. Diese Kommandos erzeugt SDIScan
+    z0XP2=3,2!                          // automatisiert
     z0XP3=5,0,A53940,4372!
     z-                                  // SDI-12 Bus AUS
 ```
