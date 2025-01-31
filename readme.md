@@ -6,10 +6,12 @@
 
 ### Übersicht
 SDIScan ist ein Tool um die Wireless Minilogger von GeoPrecision (433MHz oder 915MHz) über SDI-12 anzubinden.
-Dazu wird ein "Wireless 433/915 MHz to SDI12 Converter" benötigt (siehe dessen separates Datenblatt/Anleitung).
+Dazu wird ein (oder mehrere) "Wireless 433/915 MHz to SDI12 Converter" benötigt (siehe dessen separates Datenblatt/Anleitung).
 Dieser kann über das Kommando `aXL!` die umgebenden Logger abfragen. Bedingung ist, dass die Logger "Live-Werte"
 senden (das muss jeweils an den Loggern selbst aktiviert werden). Das `aXL!`-Kommandoe benötigt ca. 15 Sekunden.
 Danach werden die empfangenen Geräte als Liste ausgegeben.
+
+Die Programmierung des "Wireless 433/915 MHz to SDI12 Converter" wird mit SDIScan wesentlich einfacher.
 
 Des weiteren wird davon ausgegangen, dass das `BlxDashboard` verwendet wird. Terminal-Kommandos mit vorangestelltem `z`
 werden vom `BlxDashboard` über SDI-12 ausgegeben. Natürlich muss ein "Wireless 433/915 MHz to SDI12 Converter" an dem
@@ -65,7 +67,7 @@ Das Ergebnis sieht so aus (mit Kommenaren)
 
 Das `BlxDasboard` kann auch mehrzeilige Kommandos (genannt CRUN-Dateien) verarbeiten: 
 Diese wird mit `Download CRUN Command File` erzeugt. Das `BlxDahboard` Terminal-Kommando `.crun` öffnet dann einen Fileselektor
-und führt die Datei aus. 
+und führt die Datei aus. Dateiname ist `sdiscan_XXXXXX.crun`, wobei `XXXXXX`für die SNO des ersten Loggers in der Liste steht.
 
 
 ## Installation
