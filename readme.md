@@ -72,9 +72,11 @@ und führt die Datei aus.
 
 SDIScan ist eine reine HTML/JS-Applikation und wurde unter Chrome/Edge entwickelt. 
 'index.html' kann auch lokal mit dem Browser und ohne Server geöffnet werden,
-eine Arbeitsversion befindet sich im Repository:
+das 'BlxDashboard' und eine Arbeitsversion 'SDIScan' befinden sich in den Repositories:
 
+[BlxDashboard (in Repository LTX BLE Demo)](https://joembedded.github.io/ltx_ble_demo/ble_api/index.html)
 
+[SDIScan (this Project)](https://joembedded.github.io/sdiscan/index.html)
 
 ## Lizenz
 
